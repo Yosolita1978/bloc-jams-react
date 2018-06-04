@@ -16,32 +16,55 @@ class Album extends Component {
 
      this.audioElement = document.createElement('audio');
      this.audioElement.src = album.songs[0].audioSrc;
-   }
-
-   play() {
+  }
+  
+    play() {
      this.audioElement.play();
      this.setState({ isPlaying: true });
-   }
+    }
 
-   pause() {
-     this.audioElement.pause();
-     this.setState({ isPlaying: false });
+    pause() {
+      this.audioElement.pause();
+      this.setState({ isPlaying: false });
    }   
 
-   setSong(song) {
-     this.audioElement.src = song.audioSrc;
-     this.setState({ currentSong: song });
+    setSong(song) {
+        this.audioElement.src = song.audioSrc;
+        this.setState({ currentSong: song });
    }
 
-   handleSongClick(song) {
-     const isSameSong = this.state.currentSong === song;
-     if (this.state.isPlaying && isSameSong) {
-       this.pause();
-     } else {
-        if (!isSameSong) { this.setSong(song); }
-        this.play();
-     }
+    handleSongClick(song) {
+        const isSameSong = this.state.currentSong === song;
+          if (this.state.isPlaying && isSameSong) {
+            this.pause();
+          } else {
+              if (!isSameSong) { this.setSong(song); }
+            this.play();
+        }
+      }
+
+    handleHoverOn(song) {
+      this.setState({hovered: song});
+    }
+
+      handleHoverOff(song) {
+        this.setState({hovered: null});
    }
+
+    btnHandler(song, index) {
+        const playBtn = <span className="ion-play"></span>;
+        const pauseBtn = <span className="ion-pause"></span>;
+        const isSameSong = this.state.currentSong === song;
+        const played = this.state.currentSong;
+
+        if (this.state.isPlaying === false && this.state.hovered === song)  {
+            return playBtn;
+        } else if (this.state.isPlaying === true && this.state.hovered === song && isSameSong) {
+            return pauseBtn;
+        } else {
+            return (index +1);
+      }
+    }
 
    render() {
      return (
@@ -64,8 +87,9 @@ class Album extends Component {
 
              {this.state.album.songs.map((song,index)=>{
                return(
-                 <tr className="song" key={index} onClick={() => this.handleSongClick(song)} >
-                   <td>{index+1}</td><td>{song.title}</td>
+                 <tr className="song" key={index} onClick={() => this.handleSongClick(song)} onMouseEnter={() => this.handleHoverOn(song)} onMouseLeave={() => this.handleHoverOff(song)}>
+                   <td> {this.btnHandler(song, index)} </td>
+                   <td>{song.title}</td>
                  <td>{song.duration}</td>
                </tr>
              )
