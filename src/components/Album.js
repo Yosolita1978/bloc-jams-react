@@ -8,19 +8,19 @@ class Album extends Component {
      const album = albumData.find( album => {
        return album.slug === this.props.match.params.slug
      });
- 
+
      this.state = {
        album: album,
       currentSong: album.songs[0],
       currentTime: 0,
-      duration: album.songs[0].duration, 
+      duration: album.songs[0].duration,
       isPlaying: false
      };
 
      this.audioElement = document.createElement('audio');
      this.audioElement.src = album.songs[0].audioSrc;
   }
-  
+
     play() {
      this.audioElement.play();
      this.setState({ isPlaying: true });
@@ -29,7 +29,7 @@ class Album extends Component {
     pause() {
       this.audioElement.pause();
       this.setState({ isPlaying: false });
-   } 
+   }
 
    componentDidMount() {
      this.eventListeners = {
@@ -55,14 +55,15 @@ class Album extends Component {
       return '-:--;'
     }
     const min = Math.floor(time/60);
-    const seconds = Math.floor(time - min * 60);
+    const seconds = Math.round(Math.floor(time - min * 60));
+
     if (seconds < 10) {
-      return `${min}:0${seconds}`
+      return `${min}:0${seconds.toPrecision(3)}`
     } else {
-      return `${min}:${seconds}`
+      return `${min}:${seconds.toPrecision(3)}`
     }
    }
- 
+
     setSong(song) {
         this.audioElement.src = song.audioSrc;
         this.setState({ currentSong: song });
@@ -146,7 +147,7 @@ class Album extends Component {
              <col id="song-number-column" />
              <col id="song-title-column" />
              <col id="song-duration-column" />
-           </colgroup>  
+           </colgroup>
            <tbody>
 
              {this.state.album.songs.map((song,index)=>{
@@ -154,7 +155,7 @@ class Album extends Component {
                  <tr className="song" key={index} onClick={() => this.handleSongClick(song)} onMouseEnter={() => this.handleHoverOn(song)} onMouseLeave={() => this.handleHoverOff(song)}>
                    <td> {this.btnHandler(song, index)} </td>
                    <td>{song.title}</td>
-                 <td>{song.duration}</td>
+                 <td>{this.formatTime(song.duration)}</td>
                </tr>
              )
              })}
