@@ -55,12 +55,12 @@ class Album extends Component {
       return '-:--;'
     }
     const min = Math.floor(time/60);
-    const seconds = Math.round(Math.floor(time - min * 60));
+    const seconds = Math.floor(time - min * 60);
 
     if (seconds < 10) {
-      return `${min}:0${seconds.toPrecision(3)}`
+      return `${min}:0${Math.round(seconds)}`
     } else {
-      return `${min}:${seconds.toPrecision(3)}`
+      return `${min}:${Math.round(seconds)}`
     }
    }
 
