@@ -58,9 +58,9 @@ class Album extends Component {
     const seconds = Math.floor(time - min * 60);
 
     if (seconds < 10) {
-      return `${min}:0${Math.round(seconds)}`
+      return `${min}:0${seconds}`
     } else {
-      return `${min}:${Math.round(seconds)}`
+      return `${min}:${seconds}`
     }
    }
 
