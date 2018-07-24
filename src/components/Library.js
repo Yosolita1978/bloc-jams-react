@@ -13,7 +13,7 @@ class Library extends Component {
       <section className='library'>
         {
           this.state.albums.map( (album, index) =>
-            <div className={(index === 0) ? "float-album-left" : "float-album-right" }>
+            <div key={index} className={(index === 0) ? "float-album-left" : "float-album-right" }>
             <Link to={`/album/${album.slug}`} key={index}>
             <img src={album.albumCover} className="image-resize" alt={album.title} />
                <div className="album-title">{album.title}</div>

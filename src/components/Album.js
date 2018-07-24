@@ -91,7 +91,7 @@ class Album extends Component {
         const playBtn = <span className="ion-play"></span>;
         const pauseBtn = <span className="ion-pause"></span>;
         const isSameSong = this.state.currentSong === song;
-        const played = this.state.currentSong;
+        
 
         if (this.state.isPlaying === false && this.state.hovered === song)  {
             return playBtn;
