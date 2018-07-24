@@ -1,5 +1,173 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Rambla', sans-serif;
+}
+
+/* -------- LANDING PAGE -------- */
+
+.container{
+  max-width: 100%;
+  margin-left: 30px;
+  margin-right: 150px;
+}
+
+.row{
+  display: inline;
+}
+
+.hero-title {
+  font-size: 35px;
+  margin-bottom: 30px;
+  text-align: center
+}
+
+.selling-points {
+  margin-right: 150px;
+}
+
+div.point.col-sm-12{
+  text-align: left;
+  margin-bottom: 30px;
+}
+
+div.point.col-sm-12.middle{
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+div.point.col-sm-12.end{
+  text-align: right;
+  margin-bottom: 30px;
+}
+
+/* -------- LIBRARY PAGE -------- */
+
+.library {
+  width: 100%;
+}
+
+.float-album-left {
+  float: left;
+  margin-top: 20px;
+  margin-left: 150px;
+}
+
+.float-album-right {
+  float: left;
+  margin-top: 20px;
+}
+
+.image-resize {
+  box-shadow: 10px 10px 10px black;
+  width: 40%;
+}
+
+.album-title, .album-artist, .album-songs {
+  text-align: center;
+  text-decoration: none;
+  color: black;
+}
+
+.album-title {
+  font-size: 30px;
+  margin-top:20px;
+}
+
+.album-artist, .album-songs {
+  font-size: 18px;
+}
+
+/* -------- ALBUM PAGE -------- */
+
+.album {
+  width: 100%;
+  margin-top: 50px;
+}
+
+#album-info {
+  width: 30%;
+  float: left;
+  margin-left: 130px;
+}
+
+#song-list {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+#music-info {
+  float: left;
+  width: 50%;
+}
+
+#album-cover-art {
+  box-shadow: 10px 10px 10px black;
+  width: 50%;
+}
+
+.album-details {
+  text-align: left;
+  margin-left: 118px;
+  margin-top: 20px;
+}
+
+#album-title {
+  font-size: 30px;
+}
+
+.artist {
+  font-size: 18px;
+}
+
+.player-bar {
+  width: 100%;
+}
+
+.seek-bar-top {
+  width: 70%;
+}
+
+.seek-bar-bottom {
+  width: 50%;
+}
+
+.song-button {
+  width: 45%;
+  padding: 10px 5px 10px 5px;
+  font-size: 14px;
+}
+
+.song-number {
+  font-weight: bold;
+}
+
+#time-control {
+  margin-top: 10px;
+}
+
+.current-time {
+  font-size: 20px;
+}
+
+.song-title {
+  font-size: 20px;
+}
+
+.song-duration {
+  font-size: 20px;
+}
+
+#previous, #play-pause, #next {
+  width: 30px;
+  padding: 10px 0 10px;
+  margin: 0 5px 0 5px;
+}
+
+.total-time {
+  font-size: 20px;
+}
+
+.ion-volume-low, .ion-volume-high {
+  font-size: 20px;
 }

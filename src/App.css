@@ -1,5 +1,37 @@
 .App {
   text-align: center;
+  padding-bottom: 30px;
+  margin-bottom: 5px;
+}
+
+nav {
+  text-align: right;
+  padding: 10px;
+  margin: 30px 0px 20px 20px;
+  margin-right: 150px;
+  background: gray;
+}
+
+.nav-style {
+  text-decoration: none;
+  margin: 20px;
+  text-transform: uppercase;
+  color: #fff32f;
+}
+
+.nav-style:hover {
+  color: #fff32f;
+}
+
+.nav-style:active {
+  color: #fff32f;
+}
+
+.top-title {
+  font-size: 45px;
+  text-align: left;
+  margin-left: 20px;
+      margin-right: 150px;
 }
 
 .App-logo {

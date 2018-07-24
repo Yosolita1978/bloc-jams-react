@@ -19,7 +19,7 @@ import React, { Component } from 'react';
            <div className="current-time">{this.props.formatTime(this.props.currentTime)}</div>
            <input
              type="range"
-             className="seek-bar"
+             className="seek-bar-top"
              value={(this.props.currentTime / this.props.duration) || 0}
              max="1"
              min="0"
@@ -32,7 +32,7 @@ import React, { Component } from 'react';
            <div className="icon ion-volume-high"></div>
                     <input
                         type="range"
-                        className="seek-bar"
+                        className="seek-bar-bottom"
                         value={this.props.volume}
                         max="1"
                         min="0"

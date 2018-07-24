@@ -142,6 +142,7 @@ class Album extends Component {
              <div id="release-info">{this.state.album.releaseInfo}</div>
            </div>
          </section>
+         <section id="music-info">
          <table id="song-list">
            <colgroup>
              <col id="song-number-column" />
@@ -153,9 +154,9 @@ class Album extends Component {
              {this.state.album.songs.map((song,index)=>{
                return(
                  <tr className="song" key={index} onClick={() => this.handleSongClick(song)} onMouseEnter={() => this.handleHoverOn(song)} onMouseLeave={() => this.handleHoverOff(song)}>
-                   <td> {this.btnHandler(song, index)} </td>
-                   <td>{song.title}</td>
-                 <td>{this.formatTime(song.duration)}</td>
+                   <td className="song-index"> {this.btnHandler(song, index)} </td>
+                   <td className="song-title">{song.title}</td>
+                 <td className="song-duration">{this.formatTime(song.duration)}</td>
                </tr>
              )
              })}
@@ -174,6 +175,7 @@ class Album extends Component {
            handleVolumeChange={(t) => this.handleVolumeChange(t)}
            formatTime={(time) => this.formatTime(time)}
          />
+       </section>
        </section>
      );
    }
